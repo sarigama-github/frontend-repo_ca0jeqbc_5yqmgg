@@ -17,7 +17,8 @@ function Nav() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6 sm:px-8">
         <Brand />
         <div className="hidden items-center gap-6 sm:flex">
-          <a href="#about" className="text-xs text-white/60 hover:text-white/90 transition">about</a>
+          <a href="#philosophy" className="text-xs text-white/60 hover:text-white/90 transition">philosophy</a>
+          <a href="#bridge" className="text-xs text-white/60 hover:text-white/90 transition">bridge</a>
           <a href="#experience" className="text-xs text-white/60 hover:text-white/90 transition">experience</a>
           <a href="#waitlist" className="text-xs text-white/60 hover:text-white/90 transition">waitlist</a>
         </div>
@@ -129,7 +130,7 @@ function WaitlistForm() {
   }
 
   return (
-    <form onSubmit={submit} id="waitlist" className="mt-8 flex w-full max-w-lg gap-2">
+    <form onSubmit={submit} id="waitlist" className="mt-8 flex w-full max-w-xl gap-2">
       <input
         type="email"
         required
@@ -140,9 +141,9 @@ function WaitlistForm() {
       />
       <button
         disabled={status === 'loading'}
-        className="rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 px-5 py-3 font-medium text-white shadow-lg shadow-blue-600/30 transition hover:brightness-110 disabled:opacity-60"
+        className="rounded-xl bg-white/10 px-5 py-3 font-medium text-white ring-1 ring-white/15 transition hover:bg-white/15 hover:ring-white/25 hover:shadow-[0_0_0_2px_rgba(56,189,248,0.25)_inset]"
       >
-        {status === 'loading' ? 'sending…' : 'join'}
+        {status === 'loading' ? 'sending…' : 'Join the waitlist →'}
       </button>
       {message && (
         <div className="sr-only" aria-live="polite">{message}</div>
@@ -156,43 +157,47 @@ function Hero() {
     <section className="relative isolate overflow-hidden">
       <Aurora />
 
-      <div className="relative z-20 mx-auto grid min-h-[84vh] max-w-6xl grid-cols-1 items-center gap-12 px-6 py-10 sm:px-8 md:grid-cols-2">
-        <div>
+      <div className="relative z-20 mx-auto grid min-h-[88vh] max-w-6xl grid-cols-1 items-center gap-12 px-6 py-10 sm:px-8 md:grid-cols-2">
+        <div className="reveal in">
           <p className="mb-4 text-xs tracking-[0.28em] text-white/55 lowercase">aurakode</p>
-          <h1 className="text-5xl font-medium leading-[1.05] text-white sm:text-6xl">
+          <h1 className="text-5xl font-semibold leading-[1.02] text-white sm:text-6xl">
             Build at the speed of thought.
           </h1>
-          <p className="mt-5 max-w-lg text-white/70">
-            A lucid interface that feels like weather—soft, reactive, inevitable.
+          <p className="mt-5 max-w-xl text-white/70">
+            A new intelligence that moves with you — from idea to reality, without friction.
           </p>
           <WaitlistForm />
-          <p className="mt-3 text-xs text-white/40">no noise. no roadmap. just arrival.</p>
+          <p className="mt-3 text-xs text-white/40">Where imagination finally meets precision.</p>
         </div>
 
-        <div className="relative">
+        <div className="relative reveal in">
           <div className="pointer-events-none absolute -inset-24 -z-10 blur-[90px]"
                style={{ background: 'radial-gradient(circle at 40% 50%, rgba(27,78,255,0.35), rgba(0,166,255,0.15), transparent 70%)' }} />
-          <HaloFrame className="p-2">
-            <div className="aspect-square w-full overflow-hidden rounded-[24px]">
-              <div className="relative h-full w-full">
-                {/* Orb placeholder with concentric rings */}
-                <div className="absolute inset-0 grid place-items-center">
-                  <div className="relative h-[76%] w-[76%]">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <div key={i}
-                           className="absolute inset-0 rounded-full border border-white/10"
-                           style={{ transform: `scale(${1 - i * 0.12})`, boxShadow: 'inset 0 0 50px rgba(255,255,255,0.04)' }} />
-                    ))}
-                    <div className="absolute inset-0 rounded-full"
-                         style={{ background: 'radial-gradient(closest-side, rgba(255,255,255,0.08), rgba(16,19,27,1))' }} />
-                    <div className="absolute inset-0 animate-[spin_14s_linear_infinite] rounded-full"
-                         style={{ background: 'conic-gradient(from 0deg, transparent 0 40%, rgba(27,78,255,0.6), transparent 60% 100%)' }} />
+          <div className="conic-sweep ripple-light">
+            <HaloFrame className="p-2">
+              <div className="aspect-square w-full overflow-hidden rounded-[24px] film-grain">
+                <div className="relative h-full w-full">
+                  {/* refractive glass text */}
+                  <div className="absolute inset-0 grid place-items-center">
+                    <div className="pointer-events-none select-none text-center">
+                      <div className="mb-2 text-sm tracking-[0.28em] text-white/50 lowercase">artifact</div>
+                      <div className="text-3xl font-medium text-white/80 [text-shadow:0_0_30px_rgba(27,78,255,0.25)]">
+                        inside the interface
+                      </div>
+                    </div>
                   </div>
+                  {/* subtle ripples */}
+                  <div className="absolute inset-0" style={{
+                    background: 'radial-gradient(80%_60%_at_50%_40%, rgba(255,255,255,0.06), transparent), radial-gradient(60%_80%_at_40%_60%, rgba(0,166,255,0.10), transparent)'
+                  }} />
+                  <div className="absolute inset-0 rounded-[24px]" style={{
+                    background: 'linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0))'
+                  }} />
                 </div>
               </div>
-            </div>
-          </HaloFrame>
-          <p className="mt-4 text-center text-sm text-white/50">It watches from the dark. You move. It learns.</p>
+            </HaloFrame>
+          </div>
+          <p className="mt-4 text-center text-sm text-white/50">Soft blue light ripples through black glass.</p>
         </div>
       </div>
 
@@ -201,14 +206,14 @@ function Hero() {
   )
 }
 
-function Section({ title, eyebrow, children, id }) {
+function Section({ title, eyebrow, children, id, center=false }) {
   return (
     <section id={id} className="relative z-20 mx-auto max-w-6xl px-6 py-24 sm:px-8">
       {eyebrow && (
         <div className="mb-5 text-xs uppercase tracking-[0.28em] text-white/50">{eyebrow}</div>
       )}
-      <h2 className="text-3xl font-medium text-white sm:text-4xl">{title}</h2>
-      <div className="mt-6 text-white/70">{children}</div>
+      <h2 className={`${center ? 'text-center' : ''} text-3xl font-semibold text-white sm:text-4xl`}>{title}</h2>
+      <div className={`mt-6 text-white/70 ${center ? 'text-center mx-auto' : ''}`}>{children}</div>
     </section>
   )
 }
@@ -219,43 +224,77 @@ export default function App() {
       <Nav />
       <Hero />
 
-      <Section id="about" eyebrow="belief" title="Building shouldn’t feel like breaking it down.">
-        <p className="max-w-2xl">Make a shape with intent. Let the system infer the rest. Less explaining, more unfolding. Not effort. Direction. The interface becomes atmosphere.</p>
-      </Section>
-
-      <Section eyebrow="bridge" title="From thought to surface.">
-        <div className="mt-6 grid gap-6 md:grid-cols-3">
-          {[{h:'code',p:'the deep layer. precise, invisible.'},{h:'creation',p:'the visible layer. clean, inevitable.'},{h:'care',p:'the hidden layer. humane, quiet.'}].map((b, i) => (
-            <HaloFrame key={i} className="p-0">
-              <div className="rounded-[28px] p-6">
-                <h3 className="mb-2 text-lg capitalize text-white">{b.h}</h3>
-                <p className="text-white/70">{b.p}</p>
-              </div>
-            </HaloFrame>
-          ))}
+      {/* Philosophy */}
+      <Section id="philosophy" eyebrow="the philosophy" title="Creation shouldn’t feel mechanical.">
+        <div className="max-w-2xl space-y-4">
+          <p>For too long, building has been about commands, syntax, and structure. But creativity isn’t linear — it’s fluid, instinctive, alive. Aurakode brings that feeling back to building.</p>
+          <p className="text-sm text-white/50">Where imagination finally meets precision.</p>
         </div>
       </Section>
 
-      <Section id="experience" eyebrow="experience" title="Quiet motion. Bright intent.">
-        <HaloFrame className="p-0 overflow-hidden">
-          <div className="h-[300px] w-full">
-            <div className="h-full w-full animate-[pulse_8s_ease-in-out_infinite] bg-[radial-gradient(80%_100%_at_50%_0%,rgba(27,78,255,0.20),transparent)]" />
+      {/* Bridge */}
+      <Section id="bridge" eyebrow="the bridge" title="Two worlds. One flow.">
+        <div className="mt-8 grid gap-6 md:grid-cols-2">
+          <HaloFrame className="p-0">
+            <div className="rounded-[28px] p-6">
+              <div className="mb-2 text-sm text-white/50">For the ones who code.</div>
+              <h3 className="mb-1 text-xl text-white">Precision. Power. Speed.</h3>
+            </div>
+          </HaloFrame>
+          <HaloFrame className="p-0">
+            <div className="rounded-[28px] p-6">
+              <div className="mb-2 text-sm text-white/50">For the ones who create.</div>
+              <h3 className="mb-1 text-xl text-white">Freedom. Simplicity. Flow.</h3>
+            </div>
+          </HaloFrame>
+        </div>
+        <div className="relative mx-auto mt-8 h-10 w-full max-w-md">
+          <div className="pulse-line" />
+          <div className="pulse-dot" />
+          <p className="pt-12 text-center text-sm text-white/60">Aurakode connects them.</p>
+        </div>
+      </Section>
+
+      {/* Experience */}
+      <Section id="experience" eyebrow="the experience" title={"It doesn’t feel like using software.\nIt feels like intelligence unfolding."}>
+        <div className="max-w-2xl space-y-4">
+          <p>Every interaction adapts. Every response refines. Every idea gets sharper — almost before you think it.</p>
+          <p>You’ll know it when you feel it.</p>
+        </div>
+        <HaloFrame className="mt-8 p-0 overflow-hidden">
+          <div className="relative h-[320px] w-full">
+            <div className="absolute inset-0" style={{ background: 'radial-gradient(80%_100%_at_50%_0%, rgba(27,78,255,0.18), transparent)' }} />
+            <div className="absolute inset-0 conic-sweep" />
           </div>
         </HaloFrame>
       </Section>
 
-      <Section eyebrow="promise" title="You’ll never build the same way again.">
-        <div className="max-w-xl">
-          <p>Less interface. More intuition. When the fog lifts, the thing you meant is already here.</p>
-        </div>
-        <div className="mt-6">
-          <WaitlistForm />
+      {/* Belief / Manifesto */}
+      <Section id="belief" eyebrow="the belief" title="The future of building isn’t about tools. It’s about rhythm.">
+        <div className="max-w-2xl space-y-4">
+          <p>A rhythm where you move — and technology moves with you. No lag between thought and creation. No gap between what you imagine and what gets built.</p>
+          <p className="text-white/80">Aurakode is that rhythm.</p>
         </div>
       </Section>
 
+      {/* Promise */}
+      <Section id="promise" eyebrow="the promise" title="Soon, building won’t feel like building at all." center>
+        <div className="mt-6 flex justify-center">
+          <WaitlistForm />
+        </div>
+        <p className="mt-3 text-center text-sm text-white/50">Be among the first to experience a new layer of creation.</p>
+      </Section>
+
+      {/* Footer */}
       <footer className="relative z-20 mx-auto max-w-6xl px-6 pb-16 sm:px-8">
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-4 text-center text-white/55 backdrop-blur-xl">
-          © {new Date().getFullYear()} aurakode
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center text-white/70 backdrop-blur-xl">
+          <div className="mb-1 text-sm tracking-[0.18em] text-white/60 lowercase">aurakode</div>
+          <div className="text-xs text-white/50">© {new Date().getFullYear()} Aurakode · A new layer of creation.</div>
+          <div className="mt-3 flex items-center justify-center gap-4 text-xs text-white/60">
+            <a className="hover:text-white/90" href="#">Twitter</a>
+            <a className="hover:text-white/90" href="#">Discord</a>
+            <a className="hover:text-white/90" href="mailto:hello@aurakode.com">Email</a>
+          </div>
         </div>
       </footer>
     </div>
